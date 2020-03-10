@@ -24,8 +24,7 @@
      <div class='tipbody'>
        <div class='tipimg'></div>
        <div class='tiptext'>
-           <Markdown class='tipintro'>
-             {{ tip.article.intro.text }}
+           <Markdown class='tipintro' :source='tip.article.intro.text'>
            </Markdown>
          <div class='tipbuttons'>
            <a :href='`/tip/${link}`'>read more</a>
