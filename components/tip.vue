@@ -83,7 +83,6 @@ export default {
 .tiptext
   display: flex
   flex-direction: column
-  font-size: 1.1em
 
 .tipintro
   flex: 1
