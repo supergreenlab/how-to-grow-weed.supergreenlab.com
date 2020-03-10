@@ -24,11 +24,9 @@
      <div class='tipbody'>
        <div class='tipimg'></div>
        <div class='tiptext'>
-         <div class='tipintro'>
-           <Markdown>
+           <Markdown class='tipintro'>
              {{ tip.article.intro.text }}
            </Markdown>
-         </div>
          <div class='tipbuttons'>
            <a :href='`/tip/${link}`'>read more</a>
          </div>

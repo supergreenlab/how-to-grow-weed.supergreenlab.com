@@ -30,6 +30,7 @@ export default {
   */
   plugins: [
     { src: '~plugins/infiniteloading', ssr: false },
+    { src: '~plugins/markdown', ssr: false },
   ],
   /*
   ** Nuxt.js dev-modules

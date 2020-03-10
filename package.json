@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "babel-runtime": "^6.26.0",
     "nuxt": "^2.0.0",
     "vue-infinite-loading": "^2.4.5",
     "vue-markdown": "^2.2.4"
