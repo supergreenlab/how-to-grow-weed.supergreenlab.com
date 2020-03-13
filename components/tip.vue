@@ -27,7 +27,7 @@
          <Markdown :id='$style.intro' :source='tip.article.intro.text'>
          </Markdown>
          <div :id='$style.buttons'>
-           <a :href='`/${link}`'>read more</a>
+           <nuxt-link :to='`/${link}`'>read more</nuxt-link>
          </div>
        </div>
      </div>
