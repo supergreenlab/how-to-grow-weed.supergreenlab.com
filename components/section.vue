@@ -16,58 +16,49 @@
       along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 
- <template>
-   <div :id='$style.card'>
-     <div :id='$style.title'>
-       <h2>{{ tip.article.title }}</h2>
-     </div>
-     <div :id='$style.body'>
-       <div :id='$style.img'></div>
-       <div :id='$style.text'>
-         <Markdown :id='$style.intro' :source='tip.article.intro.text'>
-         </Markdown>
-         <div :id='$style.buttons'>
-           <a :href='`/${link}`'>read more</a>
-         </div>
-       </div>
-     </div>
-   </div>
- </template>
+<template>
+  <div :id='$style.container'>
+    <div v-if='section.title' :id='$style.title'>
+      <h2>{{ section.title }}</h2>
+    </div>
+    <div :id='$style.body'>
+      <div :id='$style.img'></div>
+      <div :id='$style.text'>
+        <Markdown :id='$style.intro' :source='section.text'>
+        </Markdown>
+        <div :id='$style.buttons'>
+        </div>
+      </div>
+    </div>
+    <div :id='$style.subsections'>
+      <slot></slot>
+    </div>
+  </div>
+</template>
 
 <script>
 import Markdown from 'vue-markdown'
 
 export default {
   components: { Markdown, },
-  props: ['tip'],
-  computed: {
-    link() {
-      const c = this.$props.tip.name.split('_')
-      c.shift()
-      return c.join('_')
-    }
-  }
+  props: ['sub', 'section'],
 }
 </script>
 
 <style module lang=stylus>
-#card
-  max-width: 600pt
-  margin: 30pt 20pt
-  background-color: white
+
+#container
+  display: flex
+  flex-direction: column
 
 #title
-  border: 3px solid #dedede 
-  border-bottom: none
-  border-radius: 5pt 5pt 0 0
-  padding: 10pt 20pt 5pt
+  padding: 0 20pt
+  color: #555555
+  border-bottom: 3px solid #dedede 
 
 #body
   display: flex
-  border: 3px solid #dedede 
-  border-top: 1px solid #dedede 
-  border-radius: 0 0 5pt 5pt
-  padding: 30pt 20pt 10pt
+  margin: 30pt 20pt
 
 #img
   min-width: 120pt
@@ -83,10 +74,8 @@ export default {
   display: flex
   flex-direction: column
 
-#intro
-  flex: 1
-
 #buttons
   display: flex
   flex-direction: row-reverse
+
 </style>

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const SERVER_URL = 'https://tipapi.supergreenlab.com';
+const SERVER_URL = 'https://tipapi.supergreenlab.com'
 //const SERVER_URL = 'http://localhost:8080';
 
 export const state = () => ({
@@ -31,11 +31,21 @@ export const state = () => ({
     tips: [ServerStruct],
   }
 */
+  tip: {
+    loading: true,
+    tip: null
+  },
 })
 
 export const mutations = {
   setTipPage(state, page) {
-    state.loadedPages.push(page);
+    state.loadedPages.push(page)
+  },
+  setTipLoaded(state, { tip }) {
+    state.tip = {
+      loaded: true,
+      tip: tip
+    }
   }
 }
 
@@ -44,5 +54,10 @@ export const actions = {
     const { tips } = await this.$axios.$get(`${SERVER_URL}/t/supergreenlab/SuperGreenTips/master/l/en`, { params: { from, to } })
     context.commit('setTipPage', { from, to, tips, loaded: true })
     return tips.length
-  }
+  },
+  async loadTip(context, { slug }) {
+    const tip = await this.$axios.$get(`${SERVER_URL}/t/supergreenlab/SuperGreenTips/master/s/${slug}/l/en`)
+    context.commit('setTipLoaded', { tip })
+    return tip
+  },
 }
