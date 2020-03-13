@@ -24,7 +24,7 @@
     <Section :section='article.intro' />
     <div :id='$style.body'>
       <Section v-for='section in article.sections' :section='section'>
-        <Section v-for='subSection in section.subSections' :section='subSection' :sub='true' />
+        <Section :key='subSection.name' v-for='subSection in section.subSections' :section='subSection' :sub='true' />
       </Section>
     </div>
   </div>
