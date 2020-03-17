@@ -16,23 +16,23 @@
       along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 
- <template>
-   <div :id='$style.card'>
-     <div :id='$style.title'>
-       <h2>{{ tip.article.title }}</h2>
-     </div>
-     <div :id='$style.body'>
-       <div :id='$style.img'></div>
-       <div :id='$style.text'>
-         <Markdown :id='$style.intro' :source='tip.article.intro.text'>
-         </Markdown>
-         <div :id='$style.buttons'>
-           <nuxt-link :to='`/${link}`'>read more</nuxt-link>
-         </div>
-       </div>
-     </div>
-   </div>
- </template>
+<template>
+  <div :id='$style.card'>
+    <div :id='$style.title'>
+      <h2>{{ tip.article.title }}</h2>
+    </div>
+    <div :id='$style.body'>
+      <div :id='$style.img' :style='{"background-image": `url("${picture}")`}'></div>
+      <div :id='$style.text'>
+        <Markdown :id='$style.intro' :source='tip.article.intro.text'>
+        </Markdown>
+        <div :id='$style.buttons'>
+          <nuxt-link :to='`/${slug}`'>read more</nuxt-link>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <script>
 import Markdown from 'vue-markdown'
@@ -41,10 +41,14 @@ export default {
   components: { Markdown, },
   props: ['tip'],
   computed: {
-    link() {
+    slug() {
       const c = this.$props.tip.name.split('_')
       c.shift()
       return c.join('_')
+    },
+    picture() {
+      const { tip } = this.$props
+      return `https://tipapi.supergreenlab.com/a/${tip.user}/${tip.repo}/${tip.branch}/s/${this.slug}/${tip.article.intro.image.url}`
     }
   }
 }
