@@ -19,12 +19,12 @@
 <template>
   <div :id='$style.container'>
     <div :class='$style.titlecontainer'>
-      <h1>{{ article.title }}</h1>
+      <h1>{{ tip.article.title }}</h1>
     </div>
-    <Section :section='article.intro' />
+    <Section :section='tip.article.intro' :tip='tip' />
     <div :id='$style.body'>
-      <Section v-for='section in article.sections' :section='section' :key='section.name'>
-        <Section :key='subSection.name' v-for='subSection in section.subSections' :section='subSection' :sub='true' />
+      <Section v-for='section in tip.article.sections' :section='section' :key='section.name' :tip='tip'>
+        <Section :key='subSection.name' v-for='subSection in section.subSections' :section='subSection' :sub='true' :tip='tip' />
       </Section>
     </div>
   </div>
@@ -34,7 +34,7 @@
 import Section from '~/components/section.vue'
 
 export default {
-  props: ['article'],
+  props: ['tip'],
   components: { Section },
 }
 </script>

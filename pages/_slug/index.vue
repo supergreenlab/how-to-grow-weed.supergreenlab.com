@@ -27,7 +27,7 @@
       Loading..
     </div>
     <div v-else :id='$style.scroll'>
-      <Article :article='tip.tip.article' />
+      <Article :tip='tip.tip' />
     </div>
   </div>
 </template>

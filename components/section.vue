@@ -22,7 +22,7 @@
       <h2>{{ section.title }}</h2>
     </div>
     <div :id='$style.body'>
-      <div :id='$style.img'></div>
+      <div :id='$style.img' :style='{"background-image": `url("${picture}")`}'></div>
       <div :id='$style.text'>
         <Markdown :id='$style.intro' :source='section.text'>
         </Markdown>
@@ -41,7 +41,18 @@ import Markdown from 'vue-markdown'
 
 export default {
   components: { Markdown, },
-  props: ['sub', 'section'],
+  props: ['sub', 'section', 'tip'],
+  computed: {
+    slug() {
+      const c = this.$props.tip.name.split('_')
+      c.shift()
+      return c.join('_')
+    },
+    picture() {
+      const { section, tip } = this.$props
+      return `https://tipapi.supergreenlab.com/a/${tip.user}/${tip.repo}/${tip.branch}/s/${this.slug}/${section.image.url}`
+    }
+  }
 }
 </script>
 
