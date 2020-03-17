@@ -86,6 +86,7 @@ export default {
 #text
   display: flex
   flex-direction: column
+  width: 100%
 
 #intro
   flex: 1
