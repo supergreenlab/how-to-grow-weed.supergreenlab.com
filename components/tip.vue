@@ -71,7 +71,7 @@ export default {
   border: 3px solid #dedede 
   border-top: 1px solid #dedede 
   border-radius: 0 0 5pt 5pt
-  padding: 30pt 20pt 10pt
+  padding: 15pt 15pt 10pt
 
 #img
   min-width: 120pt

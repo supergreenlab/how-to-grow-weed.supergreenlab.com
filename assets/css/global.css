@@ -18,17 +18,18 @@ body {
 	font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
   background-color: white;
+  font-size: 0.9em
 }
 
 @media only screen and (max-width: 500px) {
   body {
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 800px) {
   body {
-    font-size: 0.95em;
+    font-size: 0.85em;
   }
 }
 

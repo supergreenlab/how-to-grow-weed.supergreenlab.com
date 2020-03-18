@@ -81,14 +81,15 @@ export default {
 #header
   display: flex
   padding: 20pt
-  height: 150pt
+  height: 100pt
   border-bottom: 3px solid #dedede 
 
 #logo
-  font-size: 4em
+  font-size: 2em
 
 #scroll
   flex: 1
+  display: flex
   flex-direction: column
   overflow-y: auto
   height: calc(100vh-150pt)
