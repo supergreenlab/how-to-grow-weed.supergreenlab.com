@@ -57,18 +57,18 @@ export default {
 <style module lang=stylus>
 #card
   max-width: 600pt
-  margin: 30pt 20pt
+  margin: 10pt 40pt
   background-color: white
 
 #title
-  border: 3px solid #dedede 
+  border: 1px solid #dedede 
   border-bottom: none
   border-radius: 5pt 5pt 0 0
   padding: 10pt 20pt 5pt
 
 #body
   display: flex
-  border: 3px solid #dedede 
+  border: 1px solid #dedede 
   border-top: 1px solid #dedede 
   border-radius: 0 0 5pt 5pt
   padding: 15pt 15pt 10pt
